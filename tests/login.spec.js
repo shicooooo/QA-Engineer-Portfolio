@@ -15,3 +15,14 @@ test('login with invalid credentials', async ({ page }) => {
     await page.click('button[type="submit"]');
     await expect(page.locator('.flash.error')).toBeVisible({timeout:10000});
 })
+
+test('login with empty credentials', async ({ page }) => {
+    await page.goto("https://the-internet.herokuapp.com/login");
+    await page.fill("#username",'');
+    await page.fill("#password",'');
+    await page.click('button[type="submit"]');
+    await expect(page.locator('.flash.error')).toBeVisible({timeout:10000});
+    
+
+})
+
