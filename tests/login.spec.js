@@ -35,14 +35,17 @@
     test ("login with valid credentials",async({page})=>{
         await loginPage.login('tomsmith','SuperSecretPassword!');
         await expect(loginPage.successMessage).toBeVisible();
+        await expect(page).toHaveURL('https://the-internet.herokuapp.com/secure');
     });
     
     test("login with invalid credentials",async({page})=>{
         await loginPage.login('invalidUser','invalidPassword');
         await expect(loginPage.errorMessage).toBeVisible({timeout:10000});
+        await expect(page).toHaveURL('https://the-internet.herokuapp.com/login');
     });
 
     test("login with empty credentials",async({page})=>{
         await loginPage.login('','');
         await expect(loginPage.errorMessage).toBeVisible({timeout:10000});
+        await expect(page).toHaveURL('https://the-internet.herokuapp.com/login');
     })
