@@ -26,6 +26,9 @@
     const {test,expect}=require("@playwright/test")
     const { LoginPage }=require('./pages/LoginPage');
 
+    /*
+    OLD WAY
+    
     let loginPage;
     test.beforeEach(async({page})=>{
         loginPage=new LoginPage(page);
@@ -49,6 +52,8 @@
         await expect(loginPage.errorMessage).toBeVisible({timeout:10000});
         await expect(page).toHaveURL('https://the-internet.herokuapp.com/login');
     })
+        NEW WAY 
+            */
 
     const loginData=[
     {username:'tomsmith',password:'SuperSecretPassword!',expectedResult:'success'},
@@ -61,4 +66,12 @@
         const loginPage=new LoginPage(page);
         await loginPage.goto();
         await loginPage.login(data.username,data.password);
+
+    if (data.expectedResult==='success'){
+        await expect(loginPage.successMessage).toBeVisible();
+        await expect(page).toHaveURL('https://the-internet.herokuapp.com/secure');
+    } else {
+        await expect(loginPage.errorMessage).toBeVisible({timeout:10000});
+        await expect(page).toHaveURL('https://the-internet.herokuapp.com/login');
+    }
         })}
