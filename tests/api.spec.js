@@ -33,3 +33,17 @@ test ("Delete user by ID", async ({ request }) => {
     expect (body.isDeleted).toBe(true);
 
 });
+
+test ("update user by ID", async ({ request }) => {
+
+    const response = await request.put('https://dummyjson.com/users/1', {
+        data:{
+            firstName: "sherif updated",
+            
+    }
+});
+expect(response.status()).toBe(200);
+
+const body = await response.json();
+expect(body.firstName).toBe("sherif updated");
+});
