@@ -23,3 +23,13 @@ test("Post create new user", async ({ request }) => {
     expect(body.firstName).toBe("sherif");
     expect(body.email).toContain('sherif@test.com');
 });
+
+test ("Delete user by ID", async ({ request }) => {
+    const response = await request.delete('https://dummyjson.com/users/1');
+    expect(response.status()).toBe(200);
+
+    const body = await response.json();
+
+    expect (body.isDeleted).toBe(true);
+
+});
