@@ -1,0 +1,6 @@
+﻿test ID,title,Preconditions,STEPS,Expected Result,Actual Result,Status
+TC001,Login with empty username,المستخدم على صفحة الـ login,1. سيب الـ username فاضي 2. اكتب password صح 3. اضغط Login,رسالة خطأ تظهر,ظهرت خطأ فعلا,passed
+TC002,login with empty password,المستخدم على صفحة الـ login,1. اكتب username صح  2. سيب password فاضي 3. اضغط login,رسالة خطأ تظهر,ظهرت خطأ فعلا,passed
+TC003,"login with username , password",المستخدم على صفحة الـ login,1.اكتب username صح 2. اكتب password صح  اضغط login,يتحول لصفحة /secure ورسالة You logged into a secure area! تظهر,ظهرت ناجح فعلا,passed
+TC004,"login with empty username , password",المستخدم على صفحة الـ login,1. سيب username فاضي 2. سيب password قاضي 3. اضغط login,رسالة خطأ تظهر,ظهرت خطأ فعلا,passed
+tc005, login with invalid credentials,المستخدم على صفحة الـ login,1. اكتب username غلط 2. اكتب passwrod غلط 3. اضغط login,رسالة خطأ تظهر,ظهرت خطأ فعلا,passed

@@ -1,0 +1,2 @@
+﻿Bug ID,Title,Steps to Reproduce,Expected Result,Actual Result,Severity,Status
+BUG001,Wrong error message when password is incorrect,1. افتح صفحة الـ login 2. اكتب username صح 3. اكتب password غلط 4. اضغط Login,"رسالة ""Your password is invalid""","رسالة ""Your username is invalid""",Medium,open
